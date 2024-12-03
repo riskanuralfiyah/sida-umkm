@@ -1,0 +1,95 @@
+<!-- Created with Jaspersoft Studio version 7.0.0.final using JasperReports Library version 7.0.0-b478feaa9aab4375eba71de77b4ca138ad2f62aa  -->
+<jasperReport name="JabatanReport" language="java" pageWidth="595" pageHeight="842" columnWidth="535" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="fd859e95-eefc-4ed7-94c5-5ab3367942d3">
+	<property name="com.jaspersoft.studio.data.sql.tables" value="amFiYXRhbiBBUyAsMzQ2LDIwNyxiZGVlODMxMS02N2I0LTQxYjYtOWEyMC0zNDUwODI2YzkwZDQ7"/>
+	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="db_sida_umkm"/>
+	<query language="SQL"><![CDATA[SELECT id,
+	deskripsi,
+	nama_jabatan,
+	pict_jabatan
+FROM jabatan]]></query>
+	<field name="id" class="java.lang.Long">
+		<property name="com.jaspersoft.studio.field.name" value="id"/>
+		<property name="com.jaspersoft.studio.field.label" value="id"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="jabatan"/>
+	</field>
+	<field name="deskripsi" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="deskripsi"/>
+		<property name="com.jaspersoft.studio.field.label" value="deskripsi"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="jabatan"/>
+	</field>
+	<field name="nama_jabatan" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="nama_jabatan"/>
+		<property name="com.jaspersoft.studio.field.label" value="nama_jabatan"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="jabatan"/>
+	</field>
+	<field name="pict_jabatan" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="pict_jabatan"/>
+		<property name="com.jaspersoft.studio.field.label" value="pict_jabatan"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="jabatan"/>
+	</field>
+	<background/>
+	<title height="72">
+		<element kind="frame" uuid="dc4c91e4-7a11-4ebe-97dd-4b5d58242d21" mode="Opaque" x="-20" y="-20" width="595" height="92" backcolor="#006699">
+			<element kind="staticText" uuid="681018bf-3d46-4732-b69c-f7e834f06e24" x="20" y="20" width="375" height="43" forecolor="#FFFFFF" fontSize="34.0" bold="true">
+				<text><![CDATA[DAFTAR JABATAN]]></text>
+			</element>
+			<element kind="staticText" uuid="37db730b-84be-4cf3-bbf8-e9da2e554b9b" x="395" y="43" width="180" height="20" forecolor="#FFFFFF" fontSize="14.0" bold="false" hTextAlign="Right">
+				<text><![CDATA[]]></text>
+			</element>
+		</element>
+	</title>
+	<pageHeader height="13"/>
+	<columnHeader height="21">
+		<element kind="line" uuid="1f3bda79-64a6-4362-a962-5cffb124bef2" x="-20" y="20" width="595" height="1" forecolor="#666666"/>
+		<element kind="staticText" uuid="2008937a-ab94-4f32-ba81-4a03311014e9" mode="Opaque" x="0" y="0" width="138" height="20" forecolor="#006699" backcolor="#E6E6E6" fontSize="14.0" bold="true" hTextAlign="Center">
+			<text><![CDATA[ID Jabatan]]></text>
+			<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="7209beb9-6dca-4f0b-b4ca-57a49bafed46"/>
+		</element>
+		<element kind="staticText" uuid="714467ec-13f6-40a7-b434-23f405c831a6" mode="Opaque" x="138" y="0" width="138" height="20" forecolor="#006699" backcolor="#E6E6E6" fontSize="14.0" bold="true" hTextAlign="Center">
+			<text><![CDATA[Deskripsi]]></text>
+			<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="36271e16-724d-48fd-86e9-56bac1964934"/>
+		</element>
+		<element kind="staticText" uuid="27937913-7ec3-4fda-b6a8-54011fd0e247" mode="Opaque" x="276" y="0" width="138" height="20" forecolor="#006699" backcolor="#E6E6E6" fontSize="14.0" bold="true" hTextAlign="Center">
+			<text><![CDATA[Nama Jabatan]]></text>
+			<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="814f3adc-485f-4631-8b86-2a030d9ba451"/>
+		</element>
+		<element kind="staticText" uuid="1cdcab88-8d4b-4be3-bdc7-7e067bef2893" mode="Opaque" x="414" y="0" width="138" height="20" forecolor="#006699" backcolor="#E6E6E6" fontSize="14.0" bold="true" hTextAlign="Center">
+			<text><![CDATA[Foto]]></text>
+			<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="cb353e0a-b221-4f4a-ac2f-3ba5b2534950"/>
+		</element>
+	</columnHeader>
+	<detail>
+		<band height="20">
+			<element kind="line" uuid="8a05e68f-15f4-43fb-b187-36a19aa10a7a" positionType="FixRelativeToBottom" x="0" y="19" width="555" height="1"/>
+			<element kind="textField" uuid="fa06f1dc-9179-4050-9e7e-a8d0c33006b7" x="0" y="0" width="138" height="20" fontSize="14.0" textAdjust="StretchHeight">
+				<expression><![CDATA[$F{id}]]></expression>
+				<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="7209beb9-6dca-4f0b-b4ca-57a49bafed46"/>
+			</element>
+			<element kind="textField" uuid="5afb7fd1-a58c-4ff3-8452-48b0957816b9" x="138" y="0" width="138" height="20" fontSize="14.0" textAdjust="StretchHeight">
+				<expression><![CDATA[$F{deskripsi}]]></expression>
+				<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="36271e16-724d-48fd-86e9-56bac1964934"/>
+			</element>
+			<element kind="textField" uuid="f5710074-d1bf-4835-9133-555433f46e28" x="276" y="0" width="138" height="20" fontSize="14.0" textAdjust="StretchHeight">
+				<expression><![CDATA[$F{nama_jabatan}]]></expression>
+				<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="814f3adc-485f-4631-8b86-2a030d9ba451"/>
+			</element>
+			<element kind="textField" uuid="7f3ab539-6db2-4ca6-a0e3-3b45db362f92" x="414" y="0" width="138" height="20" fontSize="14.0" textAdjust="StretchHeight">
+				<expression><![CDATA[$F{pict_jabatan}]]></expression>
+				<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="cb353e0a-b221-4f4a-ac2f-3ba5b2534950"/>
+			</element>
+		</band>
+	</detail>
+	<columnFooter/>
+	<pageFooter height="17">
+		<element kind="textField" uuid="43b9b78f-fe1d-4601-a30e-5187d882174d" mode="Opaque" x="0" y="4" width="515" height="13" backcolor="#E6E6E6" hTextAlign="Right">
+			<expression><![CDATA["Page "+$V{PAGE_NUMBER}+" of"]]></expression>
+		</element>
+		<element kind="textField" uuid="f3d9fa4f-6560-4a7e-99f8-0ceab559229e" mode="Opaque" x="515" y="4" width="40" height="13" backcolor="#E6E6E6" evaluationTime="Report">
+			<expression><![CDATA[" " + $V{PAGE_NUMBER}]]></expression>
+		</element>
+		<element kind="textField" uuid="f8256136-59ed-41be-96bc-bebdd5c9d836" x="0" y="4" width="100" height="13" pattern="EEEEE dd MMMMM yyyy">
+			<expression><![CDATA[new java.util.Date()]]></expression>
+		</element>
+	</pageFooter>
+	<summary/>
+</jasperReport>

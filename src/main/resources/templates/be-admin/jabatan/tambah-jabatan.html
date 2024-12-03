@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="id" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Tambah Jabatan</title>
+	<!-- Include header template -->
+	<div th:replace="~{'be-admin/head' :: head}"></div>
+</head>
+
+<body>
+	<!-- Tap on Top Start -->
+	<div class="tap-top">
+		<span class="lnr lnr-chevron-up"></span>
+	</div>
+	<!-- Tap on Top End -->
+
+	<!-- Page Wrapper Start -->
+	<div class="page-wrapper compact-wrapper dark-sidebar" id="pageWrapper">
+		<!-- Page Header Start -->
+		<div th:replace="~{'be-admin/header' :: header}"></div>
+		<!-- Page Header End -->
+
+		<!-- Page Body Start -->
+		<div class="page-body-wrapper">
+			<!-- Page Sidebar Start -->
+			<div th:replace="~{'be-admin/sidebar' :: sidebar}"></div>
+			<!-- Page Sidebar End -->
+
+			<div class="page-body">
+				<div class="title-header">
+					<h5>Tambah Jabatan</h5>
+				</div>
+
+				<!-- Form Start -->
+				<form th:action="@{/jabatan/submit}" th:object="${addNewJabatan}" method="POST"
+					enctype="multipart/form-data">
+					<div class="container-fluid">
+						<div class="row">
+							<div class="col-12">
+								<div class="card">
+									<div class="card-body">
+										<div class="card-header-2">
+											<h5>Jabatan</h5>
+										</div>
+
+										<div class="theme-form theme-form-2 mega-form">
+											<div class="row">
+												<!-- Nama Jabatan -->
+												<div class="mb-4 row align-items-center">
+													<label class="form-label-title col-sm-2 mb-0">Nama Jabatan</label>
+													<div class="col-sm-10">
+														<input class="form-control" type="text" placeholder="Jabatan"
+															th:field="*{namaJabatan}" id="namaJabatan"
+															name="namaJabatan" />
+														<!-- Display validation errors for namaJabatan -->
+														<div th:if="${#fields.hasErrors('namaJabatan')}"
+															th:errors="*{namaJabatan}" class="alert alert-danger"></div>
+													</div>
+												</div>
+
+												<!-- Deskripsi -->
+												<div class="mb-4 row align-items-center">
+													<label class="form-label-title col-sm-2 mb-0">Deskripsi</label>
+													<div class="col-sm-10">
+														<textarea class="form-control" id="deskripsi" name="deskripsi"
+															rows="10" th:field="*{deskripsi}"></textarea>
+														<!-- Display validation errors for deskripsi -->
+														<div th:if="${#fields.hasErrors('deskripsi')}"
+															th:errors="*{deskripsi}" class="alert alert-danger"></div>
+													</div>
+												</div>
+
+												<!-- Foto -->
+												<div class="card">
+													<div class="card-body">
+														<div class="card-header-2">
+															<h5>Foto</h5>
+														</div>
+
+														<div class="theme-form theme-form-2 mega-form">
+															<div class="row">
+																<div class="mb-4 row align-items-center">
+																	<label
+																		class="col-sm-2 col-form-label form-label-title">Images</label>
+																	<div class="col-sm-10">
+																		<input class="form-control form-choose"
+																			type="file" name="image"
+																			id="formFileMultiple"
+																			accept="image/png, image/jpeg" multiple>
+																		<div th:if="${#fields.hasErrors('pictJabatan')}"
+																			th:errors="*{pictJabatan}"
+																			class="alert alert-danger">
+																		</div>
+																	</div>
+																</div>
+															</div>
+														</div>
+													</div>
+												</div>
+
+											</div>
+										</div>
+									</div>
+								</div>
+
+								<div class="card">
+									<div class="card-body">
+										<div class="theme-form theme-form-2 mega-form">
+											<div class="row">
+												<div class="col-12">
+													<div class="row">
+														<button type="submit" class="btn btn-success float-right">
+															<i class="fas fa-plus-square"></i> Tambah
+														</button>
+														<hr>
+														<a th:href="@{/jabatan/list}"
+															class="btn btn-primary float-left">
+															<i class="fas fa-angle-left"></i> Kembali
+														</a>
+													</div>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+
+							</div>
+						</div>
+					</div>
+				</form>
+				<!-- Form End -->
+
+				<!-- Footer Start -->
+				<div th:replace="~{'be-admin/footer' :: footer}"></div>
+				<!-- Footer End -->
+			</div>
+			<!-- Page Body End -->
+		</div>
+		<!-- Page Wrapper End -->
+
+		<!-- Modal Start -->
+		<div th:replace="~{'be-admin/modal' :: modal}"></div>
+		<!-- Modal End -->
+
+		<!-- Include scripts -->
+		<div th:replace="~{'be-admin/script' :: script}"></div>
+
+		<!-- Initialize CKEditor -->
+		<script>
+			ClassicEditor
+				.create(document.querySelector('#deskripsi'))
+				.then(editor => {
+					console.log('Editor initialized:', editor);
+				})
+				.catch(error => {
+					console.error('Editor initialization failed:', error);
+				});
+		</script>
+</body>
+
+</html>

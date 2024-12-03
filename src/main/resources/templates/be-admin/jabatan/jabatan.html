@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="id" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>List Jabatan</title>
+	<!-- Include header template -->
+	<div th:replace="~{'be-admin/head' :: head}"></div>
+	<style>
+		.deskripsi-full {
+			color: black;
+			/* Pastikan warna teks tidak merah */
+			white-space: normal;
+			/* Membiarkan teks terputus jika panjang */
+			overflow: visible;
+			/* Menghilangkan overflow */
+			text-overflow: clip;
+			/* Tidak menampilkan ellipsis */
+		}
+	</style>
+</head>
+
+<body>
+	<div class="page-wrapper compact-wrapper dark-sidebar" id="pageWrapper">
+		<!-- Page Header -->
+		<div th:replace="~{'be-admin/header' :: header}"></div>
+		<!-- Page Sidebar -->
+		<div class="page-body-wrapper">
+			<div th:replace="~{'be-admin/sidebar' :: sidebar}"></div>
+			<div class="page-body">
+				<div class="title-header">
+					<h5>List Jabatan</h5>
+				</div>
+				<div class="container-fluid">
+					<div class="row">
+						<div class="col-sm-12">
+							<div class="card">
+								<div class="card-body">
+									<!-- Menambahkan tombol untuk ekspor ke PDF dan Excel -->
+									<div class="d-flex justify-content-end mb-3">
+										<a th:href="@{/jabatan/export/pdf}" class="btn btn-primary me-2">
+											Export to PDF
+										</a>
+										<a th:href="@{/jabatan/export/excel}" class="btn btn-success">
+											Export to Excel
+										</a>
+									</div>
+									<div class="table-responsive table-desi table-product">
+										<table class="table table-1d all-package">
+											<thead>
+												<tr>
+													<th>Id</th>
+													<th>Nama Jabatan</th>
+													<th>Deskripsi</th>
+													<th>Foto</th>
+													<th>Option</th>
+												</tr>
+											</thead>
+											<tbody>
+												<tr th:each="ju : ${jabatan}">
+													<td th:text="${ju.id}"></td>
+													<td th:text="${ju.namaJabatan}"></td>
+													<td>
+														<div class="deskripsi-full" th:utext="${ju.deskripsi}"></div>
+													</td>
+													<td>
+														<img th:if="${ju.pictJabatan != null}"
+															th:src="@{/assets/images/jabatan/{filename}(filename=${ju.pictJabatan})}"
+															class="img-fluid" alt="Foto Jabatan"
+															style="width:100px; height:80px;" />
+													</td>
+													<td>
+														<ul class="list-inline mb-0">
+															<li class="list-inline-item">
+																<a th:href="@{/jabatan/form/{id}(id=${ju.id})}">
+																	<span class="lnr lnr-pencil"></span>
+																</a>
+															</li>
+															<li class="list-inline-item">
+																<a th:href="@{/jabatan/delete/{id}(id=${ju.id})}"
+																	data-bs-toggle="modal"
+																	data-bs-target="#exampleModal"
+																	onclick="setDeleteUrl(this)">
+																	<i class="far fa-trash-alt theme-color"></i>
+																</a>
+															</li>
+														</ul>
+													</td>
+												</tr>
+											</tbody>
+										</table>
+									</div>
+								</div>
+								<div class="pagination-box">
+									<nav class="ms-auto me-auto" aria-label="Page navigation">
+										<ul class="pagination pagination-primary">
+											<li class="page-item disabled">
+												<a class="page-link" href="javascript:void(0)"
+													tabindex="-1">Previous</a>
+											</li>
+											<li class="page-item active">
+												<a class="page-link" href="javascript:void(0)">1</a>
+											</li>
+											<li class="page-item">
+												<a class="page-link" href="javascript:void(0)">2</a>
+											</li>
+											<li class="page-item">
+												<a class="page-link" href="javascript:void(0)">3</a>
+											</li>
+											<li class="page-item">
+												<a class="page-link" href="javascript:void(0)">Next</a>
+											</li>
+										</ul>
+									</nav>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<!-- Footer -->
+				<div th:replace="~{'be-admin/footer' :: footer}"></div>
+			</div>
+		</div>
+	</div>
+	<!-- Modal -->
+	<div th:replace="~{'be-admin/modal' :: modal}"></div>
+	<!-- Scripts -->
+	<div th:replace="~{'be-admin/script' :: script}"></div>
+</body>
+
+</html>
